@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+
 function renderLicenseBadge(license) {
   let licenseKey = {};
 
@@ -37,9 +36,8 @@ function renderLicenseBadge(license) {
   return licenseKey;
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
+// function that returns the license link
+function renderLicenseBadgeLink(license) {
   if (license === '') {
     return; 
   }
@@ -48,8 +46,7 @@ function renderLicenseLink(license) {
   return `[![License](https://img.shields.io/badge/License-${licenseKey.badgeKey})](https://opensource.org/licenses/${licenseKey.linkKey})`;
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// function that returns the license section of README
 function renderLicenseSection(license) {
   
   if (license === '') {
@@ -63,8 +60,7 @@ const licenseSection = `This application is covered by the **${license}** licens
 
 function generateMarkdown(data) {
 
-  const readmeInfo = `
-
+  const readmeInfo =  `
   # ${data.title}
   ${renderLicenseBadgeLink(data.license)}
   
@@ -96,7 +92,8 @@ function generateMarkdown(data) {
   ${renderLicenseSection(data.license)}
   
   ## Questions
-  If you have any questions please feel free to contact me!  
+  If you have any questions please feel free to contact me!
+
   - My **Github** Link: [**${data.github}**](https://github.com/${data.github})  
   - My **Email**: **${data.email}**
   `;
@@ -105,4 +102,4 @@ function generateMarkdown(data) {
   }
   
   module.exports = generateMarkdown;
-  
+ 

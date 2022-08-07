@@ -36,10 +36,18 @@ const questions = [
     name: 'instructions',
   },
   {
-    type: 'list',
+    type: 'choices',
     message: 'Select the  license used for your project: ',
     name: 'license',
     selection: ['Apache', 'Eclipse', 'GNU GPL v3', 'IBM', 'Mozilla', 'None'],
+    validate: licensingInput => {
+      if (licensingInput) {
+          return true;
+      } else {
+          console.log('You must pick a license for the project!');
+          return false;
+      }
+  }
   },
   {
     type: 'input',
